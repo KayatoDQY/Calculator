@@ -44,7 +44,6 @@ void CRoundButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 		}
 		else if (kind == 40) {
 			keyBrush.CreateSolidBrush(RGB(150, 150, 150));
-			//pDC->SetTextColor(RGB(254, 254, 254));
 		}
 		else if (kind <= 38 && kind >= 19) {
 			keyBrush.CreateSolidBrush(RGB(254, 254, 254));

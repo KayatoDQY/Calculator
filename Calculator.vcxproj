@@ -189,6 +189,7 @@
     <ClInclude Include="Calculator.h" />
     <ClInclude Include="CalculatorDlg.h" />
     <ClInclude Include="CRoundButton.h" />
+    <ClInclude Include="DoubleContainer.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="CalculatorDlg.cpp" />
     <ClCompile Include="CRoundButton.cpp" />
+    <ClCompile Include="DoubleContainer.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

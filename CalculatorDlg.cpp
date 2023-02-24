@@ -10,6 +10,7 @@
 #include "afxdialogex.h"
 #include <Windows.h>
 #include <dwmapi.h>
+#include <stdexcept>
 
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
@@ -46,14 +47,12 @@ END_MESSAGE_MAP()
 
 
 // CCalculatorDlg 对话框
-
-
-
 CCalculatorDlg::CCalculatorDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_CALCULATOR_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
+
 
 void CCalculatorDlg::DoDataExchange(CDataExchange* pDX)
 {
@@ -102,6 +101,7 @@ void CCalculatorDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON37, _mc_);
 }
 
+
 BEGIN_MESSAGE_MAP(CCalculatorDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
@@ -136,17 +136,31 @@ BEGIN_MESSAGE_MAP(CCalculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON26, &CCalculatorDlg::OnBnClickedButton26)
 	ON_BN_CLICKED(IDC_BUTTON11, &CCalculatorDlg::OnBnClickedButton11)
 	ON_BN_CLICKED(IDC_BUTTON22, &CCalculatorDlg::OnBnClickedButton22)
+	ON_BN_CLICKED(IDC_BUTTON27, &CCalculatorDlg::OnBnClickedButton27)
+	ON_BN_CLICKED(IDC_BUTTON28, &CCalculatorDlg::OnBnClickedButton28)
+	ON_BN_CLICKED(IDC_BUTTON29, &CCalculatorDlg::OnBnClickedButton29)
+	ON_BN_CLICKED(IDC_BUTTON30, &CCalculatorDlg::OnBnClickedButton30)
+	ON_BN_CLICKED(IDC_BUTTON31, &CCalculatorDlg::OnBnClickedButton31)
+	ON_BN_CLICKED(IDC_BUTTON32, &CCalculatorDlg::OnBnClickedButton32)
+	ON_BN_CLICKED(IDC_BUTTON37, &CCalculatorDlg::OnBnClickedButton37)
+	ON_BN_CLICKED(IDC_BUTTON33, &CCalculatorDlg::OnBnClickedButton33)
+	ON_BN_CLICKED(IDC_BUTTON38, &CCalculatorDlg::OnBnClickedButton38)
+	ON_BN_CLICKED(IDC_BUTTON34, &CCalculatorDlg::OnBnClickedButton34)
+	ON_BN_CLICKED(IDC_BUTTON39, &CCalculatorDlg::OnBnClickedButton39)
+	ON_BN_CLICKED(IDC_BUTTON35, &CCalculatorDlg::OnBnClickedButton35)
+	ON_BN_CLICKED(IDC_BUTTON40, &CCalculatorDlg::OnBnClickedButton40)
+	ON_BN_CLICKED(IDC_BUTTON36, &CCalculatorDlg::OnBnClickedButton36)
+	ON_BN_CLICKED(IDC_BUTTON41, &CCalculatorDlg::OnBnClickedButton41)
 END_MESSAGE_MAP()
 
 
 // CCalculatorDlg 消息处理程序
-
 BOOL CCalculatorDlg::OnInitDialog()
 {
 	Py_SetPythonHome((wchar_t*)L"C:\\Users\\20826\\.conda\\envs\\cplusplus");
 	Py_Initialize();
 	PyRun_SimpleString("import sys");
-	PyRun_SimpleString("sys.path.append(r'C:\\Users\\20826\\Documents\\GitHub\\Calculator')");//设置.py文件所在位置
+	PyRun_SimpleString("sys.path.append(r'C:\\Users\\20826\\Documents\\GitHub\\Calculator')");
 	pModule = PyImport_ImportModule("src");
 	pFunc = PyObject_GetAttrString(pModule, "Calculate");
 	CDialogEx::OnInitDialog();
@@ -213,10 +227,10 @@ void CCalculatorDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
+
 // 如果向对话框添加最小化按钮，则需要下面的代码
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
-
 void CCalculatorDlg::OnPaint()
 {
 	if (IsIconic())
@@ -242,6 +256,7 @@ void CCalculatorDlg::OnPaint()
 	}
 }
 
+
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
 HCURSOR CCalculatorDlg::OnQueryDragIcon()
@@ -266,6 +281,7 @@ BOOL CCalculatorDlg::OnEraseBkgnd(CDC* pDC)
 	return CDialogEx::OnEraseBkgnd(pDC);
 }
 
+
 LRESULT CCalculatorDlg::OnNcHitTest(CPoint point)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
@@ -274,16 +290,6 @@ LRESULT CCalculatorDlg::OnNcHitTest(CPoint point)
 	return CDialogEx::OnNcHitTest(point);
 }
 
-/*
-void CCalculatorDlg::OnBnClickedeqality()
-{
-	CString c_user;
-	output1.GetWindowText(c_user);
-	CString str(www.c_str());
-	output1.SetWindowText(c_user + "123");
-	// TODO: 在此添加控件通知处理程序代码
-}
-*/
 
 HBRUSH CCalculatorDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
@@ -308,6 +314,8 @@ HBRUSH CCalculatorDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	}
 	return hbr;
 }
+
+
 void CCalculatorDlg::OnBnClickedButton10()
 {
 	CDialogEx::OnOK();
@@ -505,28 +513,204 @@ void CCalculatorDlg::OnBnClickedButton26()
 
 void CCalculatorDlg::OnBnClickedButton11()
 {
-	if (nowstr.size() > 0) {
-		if (nowstr.size()  >= 4) {
-			std::string endstr = nowstr.substr(nowstr.size() - 4, 4);
-			if (endstr == "sin(" || endstr == "cos(" || endstr == "tan(") {
-				nowstr = nowstr.substr(0, nowstr.size() - 4);
-			}
-			else {
-				nowstr = nowstr.substr(0, nowstr.size() - 1);
-			}
-		}
-		else {
-			nowstr = nowstr.substr(0, nowstr.size() - 1); 
-		}
-		CString str(nowstr.c_str());
-		outEDIT.SetWindowText(str);
-	}
+	nowstr=processString(nowstr);
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
 }
 
+
+std::string CCalculatorDlg::processString(const std::string& str) {
+	std::string result = str;
+	std::string specials[] = { "sin(", "cos(", "tan(", "pi", "#2", "^2", "ln(", "e^(","Expression Error" };
+	for (const std::string& s : specials) {
+		if (result.size() >= s.size() && result.substr(result.size() - s.size()) == s) {
+			result.erase(result.size() - s.size(), s.size());
+			return result;
+		}
+	}
+	result.pop_back();
+	return result;
+}
 
 void CCalculatorDlg::OnBnClickedButton22()
 {
 	nowstr = "";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton27()
+{
+	nowstr += "#2";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton28()
+{
+	nowstr += "^2";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton29()
+{
+	nowstr += "ln(";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton30()
+{
+	nowstr += "e^(";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton31()
+{
+	nowstr += "!";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton32()
+{
+	try {
+		double dd=stringToDouble(nowstr);
+		num.add(dd);
+	}
+	catch(std::invalid_argument&) {
+		nowstr = "Please confirm this is only a number";
+	}
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+double CCalculatorDlg::stringToDouble(const std::string& str) {
+	bool hasDecimal = false;
+	for (char c : str) {
+		if (!isdigit(c) && c != '.') {
+			throw std::invalid_argument("Please confirm this is only a number");
+		}
+		if (c == '.' && hasDecimal) { 
+			throw std::invalid_argument("Please confirm this is only a number");
+		}
+		if (c == '.') {
+			hasDecimal = true;
+		}
+	}
+	return std::stod(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton37()
+{
+	num.clear();
+	nowstr = "";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton33()
+{
+	double num_= num.get_max();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton38()
+{
+	double num_ = num.get_min();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton34()
+{
+	double num_ = num.get_median();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton39()
+{
+	double num_ = num.get_average();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton35()
+{
+	double num_ = num.get_stddev();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton40()
+{
+	double num_ = num.get_size();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton36()
+{
+	double num_ = num.get_sum();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
+	CString str(nowstr.c_str());
+	outEDIT.SetWindowText(str);
+}
+
+
+void CCalculatorDlg::OnBnClickedButton41()
+{
+	double num_ = num.get_product();
+	if (num_ != NAN)
+		nowstr = std::to_string(num_);
+	else
+		nowstr = "Error no num in vector";
 	CString str(nowstr.c_str());
 	outEDIT.SetWindowText(str);
 }

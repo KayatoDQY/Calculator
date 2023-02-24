@@ -4,7 +4,7 @@
 
 #pragma once
 #include "CRoundButton.h"
-#include "CDrawEdit.h"
+#include "DoubleContainer.h"
 
 #include <Python.h>
 #include <string>
@@ -45,7 +45,7 @@ public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg LRESULT OnNcHitTest(CPoint point);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-
+	
 	CEdit outEDIT;
 
 	CRoundButton _num7_ = { 7 };
@@ -119,5 +119,22 @@ public:
 	afx_msg void OnBnClickedButton26();
 	afx_msg void OnBnClickedButton11();
 	afx_msg void OnBnClickedButton22();
+	afx_msg void OnBnClickedButton27();
+	afx_msg void OnBnClickedButton28();
+	afx_msg void OnBnClickedButton29();
+	afx_msg void OnBnClickedButton30();
+	afx_msg void OnBnClickedButton31();
+	std::string processString(const std::string& str);
+	double stringToDouble(const std::string& str);
+	DoubleContainer num;
+	afx_msg void OnBnClickedButton32();
+	afx_msg void OnBnClickedButton37();
+	afx_msg void OnBnClickedButton33();
+	afx_msg void OnBnClickedButton38();
+	afx_msg void OnBnClickedButton34();
+	afx_msg void OnBnClickedButton39();
+	afx_msg void OnBnClickedButton35();
+	afx_msg void OnBnClickedButton40();
+	afx_msg void OnBnClickedButton36();
+	afx_msg void OnBnClickedButton41();
 };
-
