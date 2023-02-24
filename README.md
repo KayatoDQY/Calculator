@@ -2,7 +2,7 @@
 
 :star2:大三上期面向对象期末大作业，以下是最后实现的效果图:star2:：
 
-<img src="C:\Users\20826\Documents\GitHub\Calculator\img\image-20230224153506975.png" alt="image-20230224153506975" style="zoom: 50%;" />
+<img src="https://github.com/KayatoDQY/Calculator/blob/master/img/image-20230224153506975.png" alt="image-20230224153506975" style="zoom: 50%;" />
 
 ## 作业内容
 
@@ -44,7 +44,7 @@
 
 这里原来的界面太丑了:sweat:，这里仿了一个IOS风格的计算器出来。主要是改了按钮的样子
 
-<img src="C:\Users\20826\Documents\GitHub\Calculator\img\image-20230224154238773.png" alt="image-20230224154238773" style="zoom:50%;" />
+<img src="https://github.com/KayatoDQY/Calculator/blob/master/img/image-20230224154238773.png" alt="image-20230224154238773" style="zoom:50%;" />
 
 原理是继承`CButton`类然后对窗口，字体，有效范围，背景根据不同的按钮类型自定义新的（搜了好久，具体怎么操作的最后也忘了:yum:）。就是添加了下面的内容。主要是在`DrawItem`函数中添加各种规则。
 
@@ -68,7 +68,7 @@ private:
 
 这里最后被现实打败，我还是太菜了:frowning:。主要是太久没写过这些东西了。我大概构思了流程，一个是高精度的四则运算，不仅要满足整形还有浮点型！！！一个就是用栈去实现中缀表达式转后缀表达式。这里还有个很大问题就是其中还包括三角函数等科学计算，这对转换的规则影响很大。具体怎么实现，反正我连四则运算写出来都是bug:shit:。
 
-<img src="C:\Users\20826\Documents\GitHub\Calculator\img\image-20230224155419540.png" alt="image-20230224155419540" style="zoom: 25%;" />
+<img src="https://github.com/KayatoDQY/Calculator/blob/master/img/image-20230224155419540.png" alt="image-20230224155419540" style="zoom: 25%;" />
 
 这依托答辩就看个乐就行了。这里主要是重构各种运算符，但是还有考虑到小数点对齐，进位之类的，折腾了半天，加法都还有bug:shit:。
 
@@ -156,9 +156,9 @@ void CCalculatorDlg::OnBnClickedButton20()
 
 求求老师给个高分吧，我已经尽力了。
 
-<video src="C:\Users\20826\Documents\WeChat Files\wxid_nxjnrzh6781g22\FileStorage\Video\2023-02\5a5c2d59a660ccc7fc3bfe2c4bd942e1.mp4"></video>
-
-<video src="C:\Users\20826\Documents\WeChat Files\wxid_nxjnrzh6781g22\FileStorage\Video\2023-02\7f3281808246f375877d0bb32d044e6b.mp4"></video>
-
-<video src="C:\Users\20826\Documents\WeChat Files\wxid_nxjnrzh6781g22\FileStorage\Video\2023-02\206c3aa76616605e1cf81ed90c9b1bd7.mp4"></video>
-
+<video src="https://github.com/KayatoDQY/Calculator/blob/master/img/206c3aa76616605e1cf81ed90c9b1bd7.mp4"></video>
+https://github.com/KayatoDQY/Calculator/blob/master/img/206c3aa76616605e1cf81ed90c9b1bd7.mp4
+<video src="https://github.com/KayatoDQY/Calculator/blob/master/img/5a5c2d59a660ccc7fc3bfe2c4bd942e1.mp4"></video>
+https://github.com/KayatoDQY/Calculator/blob/master/img/5a5c2d59a660ccc7fc3bfe2c4bd942e1.mp4
+<video src="https://github.com/KayatoDQY/Calculator/blob/master/img/206c3aa76616605e1cf81ed90c9b1bd7.mp4"></video>
+https://github.com/KayatoDQY/Calculator/blob/master/img/206c3aa76616605e1cf81ed90c9b1bd7.mp4
